@@ -42,10 +42,10 @@
 		"instances": {
 			"m_sram": {
 				"location": [
-					60,
-					10
+					5,
+					5
 				],
-				"orientation": "E"
+				"orientation": "S"
 			}
 		},
  	   "gds":[
