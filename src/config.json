@@ -31,9 +31,57 @@
   "//": "https://tinytapeout.com/faq/#how-can-i-map-an-additional-external-clock-to-one-of-the-gpios",
   "CLOCK_PORT": "clk",
 
-  "//": "Configuration docs: https://librelane.readthedocs.io/en/latest/reference/configuration.html",
 
-  "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+  "//": "Configuration docs: https://librelane.readthedocs.io/en/latest/reference/configuration.html",
+  "LINT_VLT": "dir::../conf/waiver.vlt",
+  "SYNTH_AUTONAME": "True",
+ 
+  "//": "3.3V 256x8x8 SRAM",
+  "MACROS": {
+  	"gf180mcu_ocd_ip_sram__sram256x8m8wm1":{
+		"instances": {
+			"m_sram": {
+				"location": [
+					60,
+					10
+				],
+				"orientation": "E"
+			}
+		},
+ 	   "gds":[
+ 	    	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.gds"
+		],
+ 	  	"lef":[
+ 	     	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.lef"
+		],
+ 	   "vh":[
+ 	   		"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__blackbox_pp.v"
+		],
+ 	   "lib":{
+ 		     "*_tt_025C_3v30":[
+ 		      	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__tt_025C_3v30.lib"
+			],
+ 		     "*_ff_n40C_3v60":[
+ 		    	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__ff_n40C_3v60.lib"
+			],
+ 		     "*_ss_125C_3v00":[
+ 		     	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1__ss_125C_3v00.lib"
+			]
+		},
+		"spice": [
+ 		     	"dir::sram/cells/gf180mcu_ocd_ip_sram__sram256x8m8wm1/gf180mcu_ocd_ip_sram__sram256x8m8wm1.spice"
+		],
+		"sdf": {}
+		}
+	},
+
+	"PDN_MACRO_CONNECTIONS":[
+		"m_sram VPWR VGND VDD! VSS!"
+	],
+
+	"PDN_CFG": "dir::pdn_cfg.tcl",
+  
+	"//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
   "//": "!!! DO NOT CHANGE ANYTHING BELOW THIS POINT !!!",
   "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
 
