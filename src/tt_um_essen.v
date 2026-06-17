@@ -44,14 +44,8 @@ always @(posedge clk) begin
 end
 assign uo_out = mem_d1_q;
 
-wire clk_buf; 
-gf180mcu_fd_sc_mcu7t5v0__clkinv_x20 m_clk_buf(
-	.I(clk),
-	.Z(clk_buf)
-);
-
 gf180mcu_ocd_ip_sram__sram256x8m8wm1 m_sram(
-	.CLK(clk_buf), 
+	.CLK(clk), 
 	.CEN(~ena), // shut down sram in case this is ever included in a shuttle without power gatting
 	.GWEN(gwen_q), // set all entries to 0 on rst
 	.WEN({8{1'b0}}),
