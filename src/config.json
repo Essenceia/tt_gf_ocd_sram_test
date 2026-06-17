@@ -79,6 +79,12 @@
 		"m_sram VPWR VGND VDD! VSS!"
 	],
 
+	"//": "Modify PDN spacing to line up with sram WE power connections",
+	"PDN_VWIDTH": 6.0,
+	"PDN_VPITCH": 28.92,
+	"PDN_VOFFSET": 4.0,
+	"PDN_VSPACING": 2.0, 
+
 	"PDN_CFG": "dir::pdn_cfg.tcl",
   
 	"//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
@@ -105,8 +111,6 @@
 
   "FP_IO_HLENGTH": 2,
   "FP_IO_VLENGTH": 2,
-
-  "FP_PDN_VPITCH": 38.87,
 
   "//": "Clock",
   "RUN_CTS": 1,
