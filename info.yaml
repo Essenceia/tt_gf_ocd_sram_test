@@ -5,7 +5,7 @@ project:
   discord:      "essen__"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "256x8 SRAM for testing"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:      50000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 340x160 uM.
   tiles: "1x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
@@ -30,27 +30,27 @@ pinout:
   ui[4]: "addr[4]"
   ui[5]: "addr[5]"
   ui[6]: "addr[6]"
-  ui[7]: "wen"
+  ui[7]: "gwen"
 
   # Outputs
-  uo[0]: "read[0]"
-  uo[1]: "read[1]"
-  uo[2]: "read[2]"
-  uo[3]: "read[3]"
-  uo[4]: "read[4]"
-  uo[5]: "read[5]"
-  uo[6]: "read[6]"
-  uo[7]: "read[7]"
+  uo[0]: "data_rd[0]"
+  uo[1]: "data_rd[1]"
+  uo[2]: "data_rd[2]"
+  uo[3]: "data_rd[3]"
+  uo[4]: "data_rd[4]"
+  uo[5]: "data_rd[5]"
+  uo[6]: "data_rd[6]"
+  uo[7]: "data_rd[7]"
 
   # Bidirectional pins
-  uio[0]: "read_write[0]"
-  uio[1]: "read_write[1]"
-  uio[2]: "read_write[2]"
-  uio[3]: "read_write[3]"
-  uio[4]: "read_write[4]"
-  uio[5]: "read_write[5]"
-  uio[6]: "read_write[6]"
-  uio[7]: "read_write[7]"
+  uio[0]: "data_wr[0]"
+  uio[1]: "data_wr[1]"
+  uio[2]: "data_wr[2]"
+  uio[3]: "data_wr[3]"
+  uio[4]: "data_wr[4]"
+  uio[5]: "data_wr[5]"
+  uio[6]: "data_wr[6]"
+  uio[7]: "data_wr[7]"
 
 # Do not change!
 yaml_version: 6
