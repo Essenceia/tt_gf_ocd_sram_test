@@ -29,15 +29,12 @@ reg        wen_q;
 wire [7:0] mem_q; 
 reg  [7:0] mem_d1_q;
 
-wire ui_in_unused; 
-assign ui_in_unused = ui_in[7];
-
 always @(posedge clk) begin
 	if (~rst_n) begin
 		mem_addr_q <= 8'd0;
 		mem_d_q    <= 8'd0;
 		mem_d1_q   <= 8'd0;
-		wen_q      <= 8'd0;
+		wen_q      <= {8{1'b1}};
 	end else begin
 		mem_addr_q <= {1'b0, ui_in[6:0]};
 		mem_d_q    <= uio_in;
@@ -50,8 +47,8 @@ assign uo_out = mem_d1_q;
 gf180mcu_ocd_ip_sram__sram256x8m8wm1 m_sram(
 	.CLK(clk), 
 	.CEN(~ena), // shut down sram in case this is ever included in a shuttle without power gatting
-	.GWEN(~rst_n), // set all entries to 0 on rst
-	.WEN({8{wen_q}}),
+	.GWEN(wen_q), // set all entries to 0 on rst
+	.WEN({8{1'b0}}),
 	.A(mem_addr_q),
 	.D(mem_d_q),
 	.Q(mem_q)
