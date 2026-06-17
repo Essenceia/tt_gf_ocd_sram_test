@@ -7,8 +7,8 @@ define_pdn_grid \
     -macro \
     -instances m_sram \
     -name sram_macros_NS \
-    -starts_with POWER \
-    -halo "1.0 1.0"
+    -starts_with POWER 
+#	-halo "0.0 0.0"
 
 add_pdn_connect \
     -grid sram_macros_NS \
