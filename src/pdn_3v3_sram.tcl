@@ -13,3 +13,23 @@ define_pdn_grid \
 add_pdn_connect \
     -grid sram_macros_NS \
     -layers "Metal4 Metal3"
+
+add_pdn_stripe \
+    -grid sram_macros_NS \
+    -layer Metal4 \
+    -width 6.0 \
+    -offset 150.0 \
+    -spacing 2.0 \
+    -pitch 139.5 \
+    -starts_with POWER \
+    -number_of_straps 2
+
+add_pdn_stripe \
+    -grid sram_macros_NS \
+    -layer Metal4 \
+    -width 6.0 \
+    -offset 0.0 \
+    -spacing 1.0 \
+    -pitch 100.0 \
+    -starts_with POWER \
+    -number_of_straps 2

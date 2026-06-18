@@ -79,11 +79,13 @@
 		"m_sram VPWR VGND VDD! VSS!"
 	],
 
+	"PDN_SKIPTRIM": "True", 
+
 	"//": "Modify PDN spacing to line up with sram WE power connections",
-	"PDN_VWIDTH": 5.0,
-	"PDN_VPITCH": 12.0,
-	"PDN_VOFFSET": 3.0,
-	"PDN_VSPACING": 1.0, 
+	"PDN_VWIDTH": 4.0,
+	"PDN_VPITCH": 300.0,
+	"PDN_VOFFSET": 4.0,
+	"PDN_VSPACING": 2.0, 
 
 	"FP_MACRO_VERTICAL_HALO": 0.70,
 	"FP_MACRO_HORIZONTAL_HALO": 0.0,
