@@ -16,6 +16,7 @@ import mem_utils
 
 CLK_UNIT="ns"
 CLK_PERIOD=20
+TEST_ITER=500
 
 def set_random_seed():
 	if "SEED" in os.environ:
@@ -53,9 +54,23 @@ SRAM_N = 128
 
 # write test
 @cocotb.test()
-async def pattern_wr_test(dut):
+async def pattern_test(dut):
 	set_random_seed()
 	await rst(dut) 
 	for i in range(SRAM_N): 
 		wr_data = random.randint(0, 255)
-		await mem_utils.wr_sram(dut, i, wr_data) 
+		await mem_utils.wr_sram(dut, i, wr_data)
+	for i in range(SRAM_N): 
+		await mem_utils.rd_sram(dut, i) 
+
+@cocotb.test()
+async def random_test(dut):
+	set_random_seed()
+	await rst(dut)
+	for i in range(TEST_ITER): 
+		addr = random.randint(0, SRAM_N-1)
+		if random.randint(0,1):
+			wr_data = random.randint(0, 255)
+			await mem_utils.wr_sram(dut, addr, wr_data)
+		else:
+			await mem_utils.rd_sram(dut, addr) 

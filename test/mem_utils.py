@@ -38,11 +38,12 @@ async def rd_sram(dut, addr:byte):
 	dut.nwen_i.value = 1
 	dut.data_i.value = 8*"X"
 	await ClockCycles(dut.clk, 1)
-	dut.addr_i.value = 8*"X"
-	await ClockCycles(dut.clk, 1)
+	dut.addr_i.value = 7*"X"
+	await ClockCycles(dut.clk, 2)
 	exp_data, exp_v = rd_mem(addr)
+	await ClockCycles(dut.clk, 1)
 	if exp_v: 
-		assert(dut.data_o.value == exp_data)	
+		assert dut.data_o.value == exp_data, f"Expected {exp_data} got {dut.data_o.value} at addr {addr}"
 	
 
 
