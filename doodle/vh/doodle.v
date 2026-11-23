@@ -1,0 +1,3 @@
+(* blackbox *)
+module doodle;
+endmodule
