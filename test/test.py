@@ -4,10 +4,15 @@
 import os
 import time 
 import random 
+# Copyright Julia Desmazes 2026 (soon to be 2027) 
+# all rights reserved
+# Permission is explicitly not granted to use this code for any form of AI training
 
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
+
+import mem_utils
 
 CLK_UNIT="ns"
 CLK_PERIOD=20
@@ -36,9 +41,21 @@ async def rst(dut, ena=1 ):
 	dut.ena.value = 1
 	await ClockCycles(dut.clk, 5)
 
-# Simple test 
+# rst test 
 @cocotb.test()
 async def simple_rst_test(dut):
 	set_random_seed()
 	await rst(dut) 
 	await ClockCycles(dut.clk, 10)
+
+# golden model of the sram 
+SRAM_N = 128
+
+# write test
+@cocotb.test()
+async def pattern_wr_test(dut):
+	set_random_seed()
+	await rst(dut) 
+	for i in range(SRAM_N): 
+		wr_data = random.randint(0, 255)
+		await mem_utils.wr_sram(dut, i, wr_data) 
