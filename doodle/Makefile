@@ -1,5 +1,5 @@
 PROJECT_NAME=doodle
-LOGO_PATH=images/doodle.jpeg
+LOGO_PATH=img/bogo.jpg
 
 HEIGTH=50
 WIDTH=${HEIGTH}
