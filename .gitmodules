@@ -1,3 +1,6 @@
 [submodule "src/sram"]
 	path = src/sram
 	url = git@github.com:RTimothyEdwards/gf180mcu_ocd_ip_sram.git
+[submodule "gf180mcu_ocd_ip_sram"]
+	path = gf180mcu_ocd_ip_sram
+	url = git@github.com:RTimothyEdwards/gf180mcu_ocd_ip_sram
