@@ -12,18 +12,18 @@ SRAM_N = 128
 mem = bytearray(SRAM_N) 
 mem_v = bytearray(SRAM_N) 
 
-def rd_mem(addr: byte) -> tuple(byte, bool): 
+def rd_mem(addr: bytes) -> tuple(bytes, bool): 
 	assert(addr < SRAM_N) 
 	return (mem[addr], bool(mem_v[addr]))
 
-def wr_mem(addr: byte, data: byte) -> tuple(byte, bool): 
+def wr_mem(addr: bytes, data: bytes) -> tuple(bytes, bool): 
 	assert(addr < SRAM_N)
 	old = mem[addr]
 	old_v = bool(mem_v[addr]) 
 	mem[addr] = data
 	mem_v[addr] = 1
 
-async def wr_sram(dut, addr : byte, data : byte): 
+async def wr_sram(dut, addr : bytes, data : bytes): 
 	assert(addr < SRAM_N)
 	dut.addr_i.value = addr
 	dut.data_i.value = data
@@ -32,7 +32,7 @@ async def wr_sram(dut, addr : byte, data : byte):
 	wr_mem(addr, data) 
 	dut.nwen_i.value = 1 
 
-async def rd_sram(dut, addr:byte):
+async def rd_sram(dut, addr:bytes):
 	assert(addr < SRAM_N) 
 	dut.addr_i.value = addr
 	dut.nwen_i.value = 1
