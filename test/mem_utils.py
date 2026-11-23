@@ -16,7 +16,7 @@ def rd_mem(addr: bytes) -> tuple(bytes, bool):
 	assert(addr < SRAM_N) 
 	return (mem[addr], bool(mem_v[addr]))
 
-def wr_mem(addr: bytes, data: bytes) -> tuple(bytes, bool): 
+def wr_mem(addr: bytes, data: bytes): 
 	assert(addr < SRAM_N)
 	old = mem[addr]
 	old_v = bool(mem_v[addr]) 
