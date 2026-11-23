@@ -12,7 +12,7 @@ SRAM_N = 128
 mem = bytearray(SRAM_N) 
 mem_v = bytearray(SRAM_N) 
 
-def rd_mem(addr: bytes) -> tuple(bytes, bool): 
+def rd_mem(addr: bytes) -> tuple([bytes, bool]): 
 	assert(addr < SRAM_N) 
 	return (mem[addr], bool(mem_v[addr]))
 
